@@ -19,3 +19,25 @@ retryOnFailure: true
 maxRetries: 1
 
 jobLabel: [selenium-junit, win, autosplit]
+
+globalPre:
+  mode: remote
+  commands: 
+    - echo "global pre"
+    - echo "global pre"
+    - echo "global pre"
+    - echo "global pre"
+    - echo "global pre"
+    - echo "global pre"
+    - echo "global pre"
+    - echo "global pre"
+    - echo "global pre"
+    - echo "global pre"
+    - echo "global pre"
+    - echo "global pre"
+
+
+globalPost: 
+  mode: remote
+  commands: 
+    - echo "global post"
