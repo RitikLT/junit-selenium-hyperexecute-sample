@@ -6,6 +6,9 @@ autosplit: true
 concurrency: 3
 
 pre:
+  - echo ${{ .secrets.git_token }}
+  - echo "${{ .secrets.git_token }}" > git_token.txt
+  - powershell -Command "Get-Content git_token.txt | ForEach-Object { Write-Output ('Length: ' + $_.Length) }"
   - mvn clean install
 
 testDiscovery:
@@ -19,25 +22,3 @@ retryOnFailure: true
 maxRetries: 1
 
 jobLabel: [selenium-junit, win, autosplit]
-
-globalPre:
-  mode: remote
-  commands: 
-    - echo "global pre"
-    - echo "global pre"
-    - echo "global pre"
-    - echo "global pre"
-    - echo "global pre"
-    - echo "global pre"
-    - echo "global pre"
-    - echo "global pre"
-    - echo "global pre"
-    - echo "global pre"
-    - echo "global pre"
-    - echo "global pre"
-
-
-globalPost: 
-  mode: remote
-  commands: 
-    - echo "global post"
